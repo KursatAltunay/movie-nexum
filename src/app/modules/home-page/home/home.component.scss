@@ -1,0 +1,140 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .button_row,
+  .search_row,
+  .filter_row {
+    width: 100%;
+    display: flex;
+  }
+
+  .button_row {
+    margin: 20px;
+    justify-content: center;
+
+    .btn {
+      margin: 20px;
+      width: 120px;
+    }
+  }
+
+  .search_row {
+    justify-content: center;
+
+    #custom_input {
+      border: 1px solid lightgrey;
+      width: 75%;
+      height: 2rem;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      padding-right: 10px;
+
+      #search_input,
+      #search_button {
+        border: none;
+      }
+
+      #search_input {
+        width: 100%;
+        border-radius: inherit;
+        padding-left: 20px;
+      }
+
+      #search_input:focus {
+        outline: 0;
+      }
+
+      #search_input:focus-within ~ #search_button {
+        color: gray;
+        font-size: 12px;
+      }
+
+      #search_button {
+        background-color: white;
+      }
+    }
+
+    #custom_input:focus-within {
+      color: #212529;
+      background-color: #fff;
+      border-color: #86b7fe;
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+    }
+  }
+
+  .filter_row {
+    margin: 30px;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .selectContainer {
+      width: 25%;
+      margin: 10px;
+    }
+  }
+
+  .movie_container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .col-lg-6 {
+      padding: 20px;
+    }
+  }
+}
+
+::ng-deep {
+  @media screen and (max-width: 1200px) {
+    .movie_container {
+      .movie_repeater {
+       width: 100%;
+      }
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .filter_row {
+      flex-wrap: wrap;
+      width: 100%;
+      display: flex;
+
+      .selectContainer{
+        width: 45% !important;
+      }
+    }
+  }
+  @media screen and (max-width: 470px) {
+
+    .search_row{
+      #custom_input{
+        width: 100% !important;
+      }
+    }
+
+    .filter_row{
+      .selectContainer{
+        width: 100% !important;
+      }
+    }
+    
+    .movie_container{
+      margin-top: 0px !important;
+    }
+  }
+  @media screen and (max-width: 308px) {
+
+   .button_row{
+    justify-content: space-between !important;
+
+    button{
+      width: 110px !important;
+      margin: 0px !important;
+    }
+   }
+  }
+}

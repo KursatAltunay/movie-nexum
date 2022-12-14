@@ -1,0 +1,126 @@
+  <div class="modal-header">
+    <h4 ngbAutofocus class="modal-title"> Film {{ getFormTitle() }} </h4>
+    <button class="btn btn-info" (click)="generateMovie()">Generate Movie</button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="movieForm" class="">
+      <div class="form-group col-lg-6">
+        <label class="form-label" for="Title">Film Adı</label>
+        <input #titleInput type="text" class="form-control" formControlName="Title" placeholder="Film adı yazınız...">
+        <small class="text-danger"
+          *ngIf=" movieForm.get('Title').touched && movieForm.get('Title').hasError('required')">
+          Bu alan gereklidir.
+        </small>
+        <small class="text-danger" *ngIf="movieForm.get('Title').touched && movieForm.controls.Title.errors?.maxlength">
+          Film adı en fazla 250 karakterden oluşabilir.
+        </small>
+        <small class="text-danger" *ngIf="movieForm.get('Title').touched && movieForm.controls.Title.errors?.pattern">
+          Film adı alfanumerik karakterlerden oluşabilir.
+        </small>
+      </div>
+      <div class="form-group col-lg-6">
+        <label class="form-label" for="imdbRating">IMDB Puanı</label>
+        <input type="text" class="form-control" formControlName="imdbRating" placeholder="IMDB puanı yazınız...">
+        <small class="text-danger"
+          *ngIf="movieForm.get('imdbRating').touched&& movieForm.get('imdbRating').hasError('required')">
+          Bu alan gereklidir.
+        </small>
+      </div>
+      <div class="form-group col-lg-6">
+        <label class="form-label" for="Actors">Oyuncular</label>
+        <input type="text" class="form-control" formControlName="Actors"
+          placeholder="Oyuncuları aralarına virgül koyarak yazınız...">
+        <small class="text-danger"
+          *ngIf="movieForm.get('Actors').touched && movieForm.get('Actors').hasError('required')">
+          Bu alan gereklidir.
+        </small>
+      </div>
+      <div class="form-group col-lg-6">
+        <label class="form-label" for="Language">Dil</label>
+        <input type="text" class="form-control" formControlName="Language"
+          placeholder="Dilleri aralarına virgül koyarak yazınız...">
+        <small class="text-danger"
+          *ngIf="movieForm.get('Language').touched && movieForm.get('Language').hasError('required')">
+          Bu alan gereklidir.
+        </small>
+      </div>
+      <div class="form-group col-lg-6">
+        <label class="form-label" for="Genre">Tür</label>
+        <input type="text" class="form-control" formControlName="Genre"
+          placeholder="Türleri aralarına virgül koyarak yazınız...">
+        <small class="text-danger"
+          *ngIf="movieForm.get('Genre').touched && movieForm.get('Genre').hasError('required')">
+          Bu alan gereklidir.
+        </small>
+      </div>
+      <div class="form-group col-lg-6">
+        <label class="form-label" for="Poster">Poster url</label>
+        <input type="text" class="form-control" formControlName="Poster" placeholder="Poster urlsini yazınız...">
+        <small class="text-danger"
+          *ngIf="movieForm.get('Poster').touched && movieForm.get('Poster').hasError('required')">
+          Bu alan gereklidir.
+        </small>
+      </div>
+      <div class="form-group col-lg-6">
+        <label class="form-label" for="Director">Yönetmen</label>
+        <input type="text" class="form-control" formControlName="Director" placeholder="Yönetmen yazınız...">
+        <small class="text-danger"
+          *ngIf="movieForm.get('Director').touched && movieForm.get('Director').hasError('required')">
+          Bu alan gereklidir.
+        </small>
+      </div>
+      <div class="form-group col-lg-6">
+        <label class="form-label" for="Writer">Senaryo</label>
+        <input type="text" class="form-control" formControlName="Writer" placeholder="Senarist yazınız...">
+        <small class="text-danger"
+          *ngIf="movieForm.get('Writer').touched && movieForm.get('Writer').hasError('required')">
+          Bu alan gereklidir.
+        </small>
+      </div>
+
+      <div class="form-group col-lg-6">
+        <label class="form-label" for="Year">Yapım yılı</label>
+        <input type="text" class="form-control" formControlName="Year" placeholder="Yapım yılını yazınız...">
+        <small class="text-danger" *ngIf="movieForm.get('Year').touched && movieForm.get('Year').hasError('required')">
+          Bu alan gereklidir.
+        </small>
+      </div>
+      <div class="form-group col-lg-6">
+        <label class="form-label" for="Released">Çıkış yılı</label>
+        <input type="text" class="form-control" formControlName="Released"
+          placeholder="Çıkış yılını (dd mm yyyy) formatında yazınız...">
+        <small class="text-danger"
+          *ngIf="movieForm.get('Released').touched && movieForm.get('Released').hasError('required')">
+          Bu alan gereklidir.
+        </small>
+      </div>
+      <div class="form-group col-lg-6">
+        <label class="form-label" for="Runtime">Süre</label>
+        <input type="text" class="form-control" formControlName="Runtime" placeholder="Çıkış yılını yazınız...">
+        <small class="text-danger"
+          *ngIf="movieForm.get('Runtime').touched && movieForm.get('Runtime').hasError('required')">
+          Bu alan gereklidir.
+        </small>
+      </div>
+      <div class="form-group col-lg-6">
+        <label class="form-label" for="Awards">Ödüller</label>
+        <input type="text" class="form-control" formControlName="Awards" placeholder="Ödülleri yazınız...">
+        <small class="text-danger"
+          *ngIf="movieForm.get('Awards').touched && movieForm.get('Awards').hasError('required')">
+          Bu alan gereklidir.
+        </small>
+      </div>
+      <div class="form-group col-lg-12">
+        <label class="form-label" for="Plot">Açıklama</label>
+        <textarea type="text" class="form-control" formControlName="Plot"
+          placeholder="Film açıklamasını yazınız..."></textarea>
+        <small class="text-danger" *ngIf="movieForm.get('Plot').touched && movieForm.get('Plot').hasError('required')">
+          Bu alan gereklidir.
+        </small>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-secondary" (click)="activeModal.close(false)">Vazgeç</button>
+    <button type="button" class="btn btn-success" (click)="saveButton()">Kaydet</button>
+  </div>

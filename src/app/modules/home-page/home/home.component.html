@@ -1,0 +1,57 @@
+<div class="container">
+
+  <div class="button_row">
+    <button class="btn btn-success" type="button" (click)="addNewMovie()">
+      Film Ekle
+    </button>
+
+    <button class="btn btn-primary" type="button" (click)="getMovieList()">
+      Film Listesi
+    </button>
+  </div>
+
+  <div class="search_row">
+    <div id="custom_input">
+      <input #searchInput type="text" id="search_input" placeholder="Bulmak istediğiniz filmi buraya yazınız"
+        (keyup)="onSearchInputChange($event)">
+      <button #searchButton id="search_button" disabled (click)="clearSearch()">
+        <i #searchButtonIcon class="fa fa-search"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="filter_row">
+    <div id="languageFilter" class="selectContainer">
+      <ng-select [multiple]="true" [items]="languages" bindLabel="Language" bindValue="Language" [closeOnSelect]="false"
+        (change)="onFilterSelectChanged()" placeholder="Dil seçiniz" [(ngModel)]="selectedLanguages">
+      </ng-select>
+    </div>
+    <div id="genreFilter" class="selectContainer">
+      <ng-select [multiple]="true" [items]="genres" bindLabel="Genre" bindValue="Genre" [closeOnSelect]="false"
+        (change)="onFilterSelectChanged()" placeholder="Tür seçiniz" [(ngModel)]="selectedGenres">
+      </ng-select>
+    </div>
+    <div id="yearSorting" class="selectContainer">
+      <ng-select [items]="yearSortList" bindLabel="text" bindValue="id" [closeOnSelect]="false" (change)="sorting('year')"
+        placeholder="Çıkış yılı" [(ngModel)]="selectedYearSort">
+      </ng-select>
+    </div>
+    <div id="ratingSorting" class="selectContainer">
+      <ng-select [items]="ratingSortList" bindLabel="text" bindValue="id" [closeOnSelect]="false" (change)="sorting('rate')"
+        placeholder="IMDB Puanı" [(ngModel)]="selectedRatingSort">
+      </ng-select>
+    </div>
+
+  </div>
+
+  <div class="movie_container">
+    <div class="col-lg-6 movie_repeater" *ngFor="let movie of movieDisplayList">
+      <app-movie-card [movie]="movie"></app-movie-card>
+    </div>
+
+    <div class="col-lg-12" *ngIf="movieDisplayList.length == 0">
+      Film bulunamamıştır...
+    </div>
+  </div>
+
+</div>

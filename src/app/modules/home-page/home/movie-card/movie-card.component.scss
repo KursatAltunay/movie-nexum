@@ -1,0 +1,108 @@
+.card {
+  display: flex;
+  flex-direction: row;
+  // height: 500px;
+  padding: 30px;
+  border: none;
+
+  .card-body {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: space-between;
+    padding: 0px;
+
+    .imageSide,
+    .infoSide {
+      padding: 10px;
+    }
+
+    .imageSide {
+      img {
+        height: 100%;
+        border-radius: 8px;
+      }
+    }
+
+    .infoSide {
+      .fa-star {
+        color: blue;
+        font-size: 20px;
+        margin-right: 10px;
+      }
+
+      .imdb_rating {
+        font-size: 20px;
+        color: blue;
+      }
+      .plot {
+        text-align: justify;
+      }
+      .expand {
+        text-decoration: underline;
+        color: grey;
+      }
+    }
+  }
+
+  .card-footer {
+    background-color: white;
+    border: none;
+
+    .edit,
+    .delete {
+      color: lightgray;
+    }
+
+    .edit:hover {
+      color: blue;
+    }
+    .delete:hover {
+      color: red;
+    }
+  }
+}
+
+::ng-deep {
+  @media screen and (max-width: 1200px) {
+    .card {
+      width: 100%;
+
+      .card-body {
+        justify-content: center;
+        .imageSide {
+          width: max-content;
+        }
+      }
+
+      .card-footer {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .card {
+      flex-direction: column-reverse !important;
+      .card-body {
+        flex-direction: column !important;
+        .imageSide {
+          width: 100% !important;
+        }
+        .infoSide {
+          width: 100% !important;
+        }
+      }
+
+      .card-footer {
+        flex-direction: row;
+        justify-content: end;
+
+        a {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

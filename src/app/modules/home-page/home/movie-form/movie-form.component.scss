@@ -1,0 +1,28 @@
+:host {
+  ::ng-deep {
+    .modal-footer {
+      .btn {
+        width: 75px;
+      }
+    }
+  }
+}
+
+.modal-body {
+  form {
+    display: flex;
+    flex-wrap: wrap;
+
+    .form-group {
+      padding: 10px;
+    }
+  }
+}
+
+::ng-deep {
+  @media screen and (max-width: 992px) {
+   .form-group {
+    width: 100% !important;
+   }
+  }
+}

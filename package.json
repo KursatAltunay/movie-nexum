@@ -1,5 +1,5 @@
 {
-  "name": "case1",
+  "name": "baseAngularProject",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -16,9 +16,21 @@
     "@angular/compiler": "~10.2.0",
     "@angular/core": "~10.2.0",
     "@angular/forms": "~10.2.0",
+    "@angular/localize": "~10.2.0",
     "@angular/platform-browser": "~10.2.0",
     "@angular/platform-browser-dynamic": "~10.2.0",
     "@angular/router": "~10.2.0",
+    "@fortawesome/angular-fontawesome": "^0.7.0",
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@ng-bootstrap/ng-bootstrap": "^8.0.4",
+    "@ng-select/ng-select": "^7.2.0",
+    "bootstrap": "^5.0.2",
+    "font-awesome": "^4.7.0",
+    "guid-typescript": "^1.0.9",
+    "ngx-spinner": "^10.0.1",
+    "ngx-toastr": "^13.2.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

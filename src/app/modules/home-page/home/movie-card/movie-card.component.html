@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-body col-lg-11">
+    <div class="col-lg-6 imageSide">
+      <img class="card-img" [src]="movie.Poster" alt="{{movie.Title}} poster">
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-12 infoSide">
+      <p class="card-title"><b><span class="title">{{movie.Title}}</span></b>
+        ({{+movie.Year? movie.Year :movie.Released.split(' ')[2]}})</p>
+      <p><i class="fa fa-star"></i><span class="imdb_rating">{{movie.imdbRating}} </span> / 10</p>
+      <p><b>Dil: </b> <span class="language">{{movie.Language}}</span></p>
+      <p><b>Tür: </b> <span class="genre">{{movie.Genre}}</span></p>
+      <p><b>Oyuncular: </b> {{(movie.Actors | slice:0:30)}} <span type="button" (click)="goToDetails()"
+          *ngIf="movie.Actors.length > 30" class="expand"><b>...Tümünü gör</b></span></p>
+      <p class="plot">{{(movie.Plot | slice:0:150)}} <span type="button" (click)="goToDetails()"
+          *ngIf="movie.Plot.length > 150" class="expand"><b>...Detaylar</b></span>
+      </p>
+    </div>
+  </div>
+  <div class="card-footer col-lg-1">
+    <a class="edit" type="button" (click)="editMovie()" title="Düzenle"> <i class="fa fa-pencil"></i> </a>
+    <a class="delete" type="button" (click)="deleteMovie()" title="Sil"> <i class="fa fa-trash"></i> </a>
+  </div>
+</div>

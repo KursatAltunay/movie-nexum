@@ -1,0 +1,9 @@
+:host {
+  ::ng-deep {
+    .modal-footer {
+      .btn {
+        width: 75px;
+      }
+    }
+  }
+}
